@@ -29,8 +29,6 @@ module.exports = (sequelize, dataTypes) => {
         deletedAt: false
     }
     const Actor = sequelize.define(alias, cols, config); 
-
-    //Aquí debes realizar lo necesario para crear las relaciones con el modelo (Movie)
  
     return Actor
 };
