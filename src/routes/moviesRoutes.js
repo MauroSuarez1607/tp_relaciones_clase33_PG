@@ -10,8 +10,7 @@ router
     .get('/movies/add', moviesController.add)
     .post('/movies/create', moviesController.create)
     .get('/movies/edit/:id', moviesController.edit)
-    .post('/movies/update/:id', moviesController.update)
-    .get('/movies/delete/:id', moviesController.delete)
-    .post('/movies/delete/:id', moviesController.destroy)
+    .put('/movies/update/:id', moviesController.update)
+    .delete('/movies/delete/:id', moviesController.destroy)
 
 module.exports = router;

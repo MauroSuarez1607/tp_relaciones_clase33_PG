@@ -6,18 +6,49 @@
 <body>
     <%- include('partials/header') %>
 
-    <h1><%= movie.title %> </h1>    
-    <br>
-    <p>RATING: <%= movie.rating %> </p>
-    <p>AWARDS: <%= movie.awards %> </p>
-    <p>LENGTH: <%= movie.length + ' min'%> </p>
-    <p>RELEASE DATE: <%= movie.release_date %> </p>
-    <p>GENERO: <%= movie.genre ? movie.genre.name : 'SIN ESPECIFICAR' %></p>
-    <br>
-    <section>
-        <!--Aquí debe colocar los botones de Modificar - Borrar y Listado de Películas-->
-        <a class="botonAgregar" href="/movies/edit/<%= movie.id %>">Editar Pelicula</a>
-    </section>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <img class="img-fluid" src="/img/<%= movie.image || 'movie_1.jpg' %>" alt="">
+                </div>
+                <div class="col-12 col-md-8">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b><%= movie.title.toUpperCase() %></b></li>
+                        <li class="list-group-item"><b>Genero: </b><%= movie.genre ? movie.genre.name : 'SIN ESPECIFICAR' %></li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <span>
+                                    <b>Duracion: </b><%= movie.length %>
+                                </span>
+                                <span>
+                                    <b>Premios: </b><%= movie.awards %>
+                                </span>
+                                <span>
+                                    <b>Rating: </b><%= movie.rating %>
+                                </span>
+                            </div>
+                            <li class="list-group-item">
+                                <h5 class="fw-bold">Actores: </h5>
+                                <% if (movie.actors.length) { %>
+                                    <ul class="list-group list-group-flush">
+                                        <% movie.actors.forEach(actor => { %>
+                                            <li class="list-group-item">
+                                                <%= actor.first_name %> <%= actor.last_name %>
+                                            </li>
+                                        <% }) %>                                    
+                                  </ul>
+                                <% }else{ %>
+                                    <p class="text-muted">No hay actores vinculados con esta pelicula</p>
+                                <% } %>
+                            </li>
+
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
