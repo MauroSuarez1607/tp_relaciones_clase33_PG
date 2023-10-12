@@ -150,10 +150,7 @@ const moviesController = {
                     })                
             })
             .catch((error => console.log(error)))
-    },
-    delete: function (req,res) {
-
-    },
+    },    
     destroy: function (req,res) {
         db.Actor_Movie.destroy({
             where : {
