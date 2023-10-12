@@ -12,9 +12,11 @@
     <p>AWARDS: <%= movie.awards %> </p>
     <p>LENGTH: <%= movie.length + ' min'%> </p>
     <p>RELEASE DATE: <%= movie.release_date %> </p>
+    <p>GENERO: <%= movie.genre ? movie.genre.name : 'SIN ESPECIFICAR' %></p>
     <br>
     <section>
         <!--Aquí debe colocar los botones de Modificar - Borrar y Listado de Películas-->
+        <a class="botonAgregar" href="/movies/edit/<%= movie.id %>">Editar Pelicula</a>
     </section>
 
 </body>
